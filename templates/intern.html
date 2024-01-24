@@ -16,11 +16,9 @@
     <div class="col-md-4"></div>
 
     <div class="col-md-4">
-    <br>
-    <br>
-    <br>
 
-      <h3 class="text-white bg-dark text-center p-3">Please fill out your Details </h3>
+
+      <h3 class="text-white bg-dark text-center p-3">Please fill out your Details Carefully</h3>
 
 {% for message in messages %}
 
@@ -33,37 +31,66 @@
       <div class="card p-2">
 
 
-      <form action="/contact" method="post">{% csrf_token %}
+      <form action="/internshipdetails" method="post">{% csrf_token %}
         <div class="form-group">
           <h5>
-            <span><i class="fas fa-user"></i> Name</span>
+            <span><i class="fas fa-user"></i> Full Name</span>
           </h5>
           <input type="text" class="form-control mb-3" name="name" required/>
         </div>
-
-          <div class="form-group">
+        <div class="form-group">
+          <h5>
+            <span><i class="fas fa-user"></i>U.S.N</span>
+          </h5>
+          <input type="text" class="form-control mb-3" name="usn" required/>
+        </div>
+        <div class="form-group">
           <h5>
             <span><i class="bx bx-envelope"></i> Email</span>
           </h5>
-          <input type="email" value = {{user.email}} class="form-control mb-3" name="email" required/>
+          <input type="email" value="{{user.email}}" class="form-control mb-3" name="email" required/>
         </div>
 
-          <div class="form-group">
+         <div class="form-group">
           <h5>
-            <span><i class="fas fa-phone-alt"></i> Phone No.</span>
+            <span><i class="far fa-question-circle"></i>Did you Received Offer Letter</span>
           </h5>
-          <input type="number" class="form-control mb-3" name="num" required/>
+          <input type="text" class="form-control mb-3" name="offer" placeholder="Yes/No" required/>
         </div>
 
-           <div class="form-group">
+
+      <div class="form-group">
           <h5>
-            <span><i class="fas fa-question-circle"></i> How can I help you</span>
+            <span><i class="far fa-calendar-check"></i>Start Date</span>
           </h5>
-          <textarea type="text" class="form-control mb-3" name="desc" required/></textarea>
+          <input type="date" class="form-control mb-3" name="startdate" required/>
         </div>
+
+      <div class="form-group">
+          <h5>
+            <span><i class="far fa-calendar-check"></i>End Date</span>
+          </h5>
+          <input type="date" class="form-control mb-3" name="enddate" required/>
+        </div>
+
+        <div class="form-group">
+          <h5>
+            <span><i class="far fa-question-circle"></i>Did you want Project and Report</span>
+          </h5>
+          <input type="text" class="form-control mb-3" name="projreport" placeholder="Yes/No" required/>
+        </div>
+
+        <div class="form-group">
+          <h5>
+            <span><i class="far fa-question-circle"></i>College Name </span>
+          </h5>
+          <textarea type="text" class="form-control mb-3" name="cname" required ></textarea>
+        </div>
+
+
 
         <div class="d-grid gap-2">
-          <button class="btn btn-dark" type="submit">Login</button>
+          <button class="btn btn-dark" type="submit">Submit</button>
         </div>
 
       </div>
