@@ -3,20 +3,26 @@ from .models import *
 
 # Register your models here.
 
-admin.site.register(Contact)
-admin.site.register(Blogs)
-
-class InternshipAdmin(admin.ModelAdmin):
-    list_display = ('fullname',
-                    'usn',
-                    'email',
-                    'college_name',
-                    'offer_status',
-                    'start_date',
-                    'end_date',
-                    'proj_report',
+class BlogsAdmin(admin.ModelAdmin):
+    list_display = ('title',
+                    'description',
+                    'authname',
+                    'img',
                     'timeStamp')
-    search_fields=('fullname','usn','email')
-    list_filter=['college_name','proj_report','offer_status']
+    search_fields=('title','authname')
+    list_filter=['timeStamp']
 
-admin.site.register(Internship,InternshipAdmin)
+admin.site.register(Blogs, BlogsAdmin)
+
+
+
+class ContactAdmin(admin.ModelAdmin):
+    list_display = ('name',
+                    'email',
+                    'phonenumber',
+                    'description')
+    search_fields=('name','email')
+    list_filter=['phonenumber']
+
+admin.site.register(Contact, ContactAdmin)
+
